@@ -9,7 +9,7 @@ public class Item : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = Random.Range(1, 5);
+        speed = Random.Range(1, 3);
 
     }
 

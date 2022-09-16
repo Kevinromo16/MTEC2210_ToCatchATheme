@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     {
 
         InvokeRepeating("SpawnItem",0,2);
+
     }
 
     // Update is called once per frame
@@ -25,12 +26,12 @@ public class GameManager : MonoBehaviour
     }
     public void SpawnItem()
     {
-        float rndXValue = Random.Range(leftTran.position.x, rightTran.position.x);
 
-        Vector2 spawnPos = new Vector2(rndXValue, leftTran.position.y);
+        float rndXvalue = Random.Range(leftTran.position.x, rightTran.position.x);
 
-        Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
+        Vector2 spawnPos = new Vector2(rndXvalue, leftTran.position.y);
 
+        Instantiate(itemPrefab, spawnPos, Quaternion.identity);
 
     }
 
