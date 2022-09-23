@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Playercontroller : MonoBehaviour
 {
-    
-    public float speed; 
+    public GameManager gm;
+    public float speed;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +18,24 @@ public class Playercontroller : MonoBehaviour
     {
         float xMOve = Input.GetAxis("Horizontal");
 
-        transform.Translate(xMOve * speed * Time.deltaTime , 0, 0); 
+        transform.Translate(xMOve * speed * Time.deltaTime, 0, 0);
+
+    }
+ 
+    private void OnTriggerEnter2D(Collider2D collider)
+    
+    {
+        if (collider.gameObject.tag == "Goal")
+        {
+            gm.IncrementScore(1);
+            Destroy(collider.gameObject);        
+        }
+
+        if (collider.gameObject.tag == "Red")
+        {
+            Destroy(gameObject);       
+        }
+    
 
     }
 }
