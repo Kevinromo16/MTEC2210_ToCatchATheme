@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Playercontroller : MonoBehaviour
 {
+    public AudioClip coinClip;
+    public AudioClip hazardClip;
+
+    public AudioSource audioSource;
     public GameManager gm;
     public float speed;
     // Start is called before the first frame update
@@ -28,11 +32,14 @@ public class Playercontroller : MonoBehaviour
         if (collider.gameObject.tag == "Goal")
         {
             gm.IncrementScore(1);
+
+            gm.playSound(coinClip);
             Destroy(collider.gameObject);        
         }
 
         if (collider.gameObject.tag == "Red")
         {
+            gm.playSound(hazardClip);
             Destroy(gameObject);       
         }
     

@@ -6,18 +6,22 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public int score = 0;
-    public GameObject [] itemPrefab;
+    public GameObject[] itemPrefab;
     public Transform leftTran;
     public Transform rightTran;
 
     public TextMeshPro scoretext;
 
-    
+    private AudioSource audioSource;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
 
-        InvokeRepeating("SpawnItem",0,2);
+        audioSource = GetComponent<AudioSource>();
+        InvokeRepeating("SpawnItem", 0, 2);
 
     }
 
@@ -38,10 +42,15 @@ public class GameManager : MonoBehaviour
         Instantiate(itemPrefab[index], spawnPos, Quaternion.identity);
 
     }
-    
+
     public void IncrementScore(int value)
     {
         score += value;
+    }
+
+    public void playSound(AudioClip Clip)
+    {
+        audioSource.PlayOneShot(Clip);
     }
 
 }
