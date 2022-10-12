@@ -40,7 +40,13 @@ public class Playercontroller : MonoBehaviour
         if (collider.gameObject.tag == "Red")
         {
             gm.playSound(hazardClip);
-            Destroy(gameObject);       
+            Destroy(gameObject);
+        }
+
+        if (collider.gameObject.tag == "Yellow")
+        {
+            Destroy(collider.gameObject);
+            Debug.Log("Theme Changed");
         }
     
 
