@@ -10,10 +10,13 @@ public class Playercontroller : MonoBehaviour
     public AudioSource audioSource;
     public GameManager gm;
     public float speed;
+    public float jumpSpeed = 1;
+    private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
 
+        rb = GetComponent<Rigidbody2D>();
 
     }
 
@@ -23,6 +26,12 @@ public class Playercontroller : MonoBehaviour
         float xMOve = Input.GetAxis("Horizontal");
 
         transform.Translate(xMOve * speed * Time.deltaTime, 0, 0);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.velocity = Vector2.up * jumpSpeed;
+        }
+
 
     }
  
